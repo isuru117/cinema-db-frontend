@@ -1,5 +1,5 @@
 defaults: &defaults
-  working_directory: repo
+  working_directory: ~/repo
 
 version: 2
 jobs:
@@ -30,7 +30,7 @@ jobs:
       - image: bitnami/aws-cli:2.2.31
     steps:
       - attach_workspace:
-          at: repo
+          at: ~/repo
       - run:
           name: Configure AWS CLI
           command: aws configure set default.region ${AWS_DEFAULT_REGION}
