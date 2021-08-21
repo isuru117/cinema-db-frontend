@@ -1,0 +1,8 @@
+project_key         = "project-name"
+aws_access_key      = "your-access-key "
+aws_secret_key      = "your-secret"
+aws_region          = "region"
+s3_bucket_name      = "bucket-name"
+s3_bucket_env       = "development|production"
+domain              = "domain-url"
+hosted_zone         = "hosted-zone-name"
