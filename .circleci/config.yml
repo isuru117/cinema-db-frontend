@@ -1,5 +1,5 @@
 defaults: &defaults
-  working_directory: ~/repo
+  working_directory: /root/repo
 
 version: 2
 jobs:
@@ -20,7 +20,6 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: npm run test
       - run: npm run build
-      - run: pwd
       - persist_to_workspace:
           root: public
           paths:
@@ -31,8 +30,7 @@ jobs:
       - image: bitnami/aws-cli:2.2.31
     steps:
       - attach_workspace:
-          at: public
-      - run: pwd
+          at: /root/repo
       - run:
           name: Configure AWS CLI
           command: aws configure set default.region ${AWS_DEFAULT_REGION}
