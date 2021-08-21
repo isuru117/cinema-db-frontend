@@ -1,7 +1,7 @@
 defaults: &defaults
   working_directory: ~/repo
 
-version: 2.1
+version: 2
 jobs:
   build:
     <<: *defaults
@@ -55,6 +55,6 @@ workflows:
       - deploy:
           filters:
             branches:
-              only: master
+              only: main
           requires:
             - build
