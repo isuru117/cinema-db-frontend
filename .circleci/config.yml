@@ -1,11 +1,11 @@
 defaults: &defaults
   working_directory: ~/repo
 
-version: 2
+version: 2.1
 jobs:
   build:
     <<: *defaults
-      docker:
+    docker:
       - image: cimg/node:14.17.5
     steps:
       - checkout
