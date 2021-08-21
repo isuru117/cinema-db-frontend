@@ -17,6 +17,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "cinemadb.ml.s3-website.us-east-2.amazonaws.com",
   "eslintConfig": {
     "extends": [
       "react-app",
