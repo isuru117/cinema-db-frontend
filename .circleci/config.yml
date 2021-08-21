@@ -20,17 +20,19 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: npm run test
       - run: npm run build
+      - run: pwd
       - persist_to_workspace:
           root: public
           paths:
-            - ./
+            - "**"
   deploy:
     <<: *defaults
     docker:
       - image: bitnami/aws-cli:2.2.31
     steps:
       - attach_workspace:
-          at: ~/repo/public
+          at: public
+      - run: pwd
       - run:
           name: Configure AWS CLI
           command: aws configure set default.region ${AWS_DEFAULT_REGION}
@@ -49,8 +51,5 @@ workflows:
     jobs:
       - build
       - deploy:
-          filters:
-            branches:
-              only: main
           requires:
             - build
